@@ -109,8 +109,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="ni ni-briefcase-24 text-warning"></i> {{ __('Plan') }}
+                <a class="nav-link" href="{{ route('slot.index') }}">
+                    <i class="ni ni-briefcase-24 text-warning"></i> {{ __('Slot') }}
                 </a>
             </li>
             <li class="nav-item">
@@ -119,8 +119,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link" href="">
-            <i class="ni ni-settings-gear-65 text-success"></i> {{ __('Setting') }}
+                    <a class="nav-link" href="{{ route('car.index') }}">
+            <i class="ni ni-settings-gear-65 text-success"></i> {{ __('Car') }}
             </a>
             </li>
             <li class="nav-item">
