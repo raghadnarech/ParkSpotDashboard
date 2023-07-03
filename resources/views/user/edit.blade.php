@@ -1,13 +1,13 @@
-@extends('layouts.app', ['title' => __('Parking Admin')])
+@extends('layouts.app', ['title' => __('Parking User')])
 
 @section('content')
    @include('layouts.headers.header',
       array(
           'class'=>'info',
-          'title'=>"Parking Admin",'description'=>'',
+          'title'=>"Parking User",'description'=>'',
           'icon'=>'fas fa-home',
           'breadcrumb'=>array([
-            'text'=>'Parking Admin'
+            'text'=>'Parking User'
 ],['text'=>'Edit Detail'])))
 
 
@@ -18,27 +18,27 @@
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('Parking Admin') }}</h3>
+                                <h3 class="mb-0">{{ __('Parking User') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('admin.index') }}" class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
+                                <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.update', $admin) }}" autocomplete="off" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('user.update', $user) }}" autocomplete="off" enctype="multipart/form-data">
 
                             @csrf
                             @method('put')
-                            <h6 class="heading-small text-muted mb-4">{{ __('Parking Admin Detail') }}</h6>
+                            <h6 class="heading-small text-muted mb-4">{{ __('Parking user Detail') }}</h6>
                         <div class="pl-lg-4">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">{{ __('Name') }}</label>
-                                        <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name',$admin->name) }}"  autofocus required>
+                                        <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name',$user->name) }}"  autofocus required>
 
                                         @if ($errors->has('name'))
                                             <span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
                                 <div class="col-6">
                                     <div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-type">{{ __('Phone') }}</label>
-                                        <input type="text" name="phone" id="input-phone" class="form-control form-control-alternative{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="{{ __('Phone') }}" value="{{ old('phone',$admin->phone) }}" autofocus required>
+                                        <input type="text" name="phone" id="input-phone" class="form-control form-control-alternative{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="{{ __('Phone') }}" value="{{ old('phone',$user->phone) }}" autofocus required>
 
                                         @if ($errors->has('phone'))
                                             <span class="invalid-feedback" role="alert">
@@ -64,7 +64,7 @@
                                 <div class="col-6">
                                     <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-password">{{ __('Password') }}</label>
-                                        <input type="text" name="password" id="input-password" class="form-control form-control-alternative{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Password') }}" value="{{ old('password',$admin->password) }}" autofocus required>
+                                        <input type="text" name="password" id="input-password" class="form-control form-control-alternative{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Password') }}" value="{{ old('password',$user->password) }}" autofocus required>
 
                                         @if ($errors->has('password'))
                                             <span class="invalid-feedback" role="alert">
@@ -73,22 +73,8 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="form-group{{ $errors->has('zone_id') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-zone_id">{{ __('Zone ID') }}</label>
-                                        <input type="number" name="zone_id" id="input-zone_id" class="form-control form-control-alternative{{ $errors->has('zone_id') ? ' is-invalid' : '' }}" placeholder="{{ __('Zone ID') }}" value="{{ old('zone_id',$admin->zone_id) }}" autofocus required >
-
-                                        @if ($errors->has('zone_id'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('zone_id') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
                             </div>
                         </div>
-
-
 
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>

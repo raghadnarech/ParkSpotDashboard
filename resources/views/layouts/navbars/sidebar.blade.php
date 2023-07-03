@@ -114,8 +114,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="ni ni-cart text-info"></i> {{ __('Buyer List') }}
+                <a class="nav-link" href="{{ route('book_history.index') }}">
+                    <i class="ni ni-cart text-info"></i> {{ __('Book History') }}
                 </a>
             </li>
             <li class="nav-item">
@@ -124,8 +124,8 @@
             </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="ni ni-world-2 text-primary"></i> {{ __('Privacy And policy ') }}
+                <a class="nav-link" href="{{ route('user.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('User') }}
                 </a>
             </li>
 

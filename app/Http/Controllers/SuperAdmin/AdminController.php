@@ -7,7 +7,6 @@ use App\Http\Controllers\Wallet_AdminController;
 use App\Models\Admin;
 use App\Models\WalletAdmin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 
 class AdminController extends Controller
 {
@@ -55,7 +54,7 @@ class AdminController extends Controller
         $admin=new Admin();
         $admin->phone=$request->input('phone');
         $admin->name = $request->input('name');
-        $admin->password=Crypt::encryptString($request->input('password'));
+        $admin->password=bcrypt($request->input('password'));
         $admin->zone_id=$request->input('zone_id');
         $admin->device_token=null;
         $admin->save();
@@ -89,7 +88,6 @@ class AdminController extends Controller
     {
         //
         $admin = Admin::findOrFail($id);
-        $admin->password=Crypt::decryptString($admin->password);
         return view('admin.edit', ['admin' => $admin]);
     }
 
@@ -106,7 +104,7 @@ class AdminController extends Controller
         $admin = Admin::findOrFail($id);
         $admin->phone=$request->input('phone');
         $admin->name = $request->input('name');
-        $admin->password=Crypt::encryptString($request->input('password'));
+        $admin->password=bcrypt($request->input('password'));
         $admin->zone_id=$request->input('zone_id');
         $admin->update();
         return redirect()->route('admin.index')->withStatus(__('Admin updated successfully.'));
