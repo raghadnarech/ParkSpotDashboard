@@ -1,13 +1,13 @@
-@extends('layouts.app', ['title' => __('Parking Zone ')])
+@extends('layouts.app', ['title' => __('Parking Slot ')])
 
 @section('content')
   @include('layouts.headers.header',
       array(
           'class'=>'info',
-          'title'=>"Parking Zone",'description'=>'',
+          'title'=>"Parking Slot",'description'=>'',
           'icon'=>'fas fa-home',
           'breadcrumb'=>array([
-            'text'=>'Parking Zone'
+            'text'=>'Parking Slot'
 ])))
 
     <div class="container-fluid mt--7">
@@ -17,10 +17,10 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('Parking Zone ') }}</h3>
+                                <h3 class="mb-0">{{ __('Parking Slot ') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('zone.create') }}" class="btn btn-sm btn-primary">{{ __('Add Zone') }}</a>
+                                <a href="{{ route('slot.create') }}" class="btn btn-sm btn-primary">{{ __('Add Slot') }}</a>
                             </div>
                         </div>
                     </div>
@@ -41,22 +41,20 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">{{ __('#') }}</th>
-                                    <th scope="col">{{ __('Zone Name') }}</th>
-                                    <th scope="col">{{ __('Type') }}</th>
-                                    <th scope="col">{{ __('Lat') }}</th>
-                                    <th scope="col">{{ __('Lan') }}</th>
+                                    <th scope="col">{{ __('Slot Name') }}</th>
+                                    <th scope="col">{{ __('Status') }}</th>
+                                    <th scope="col">{{ __('Zone ID') }}</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($zone as $item)
+                                @foreach ($slot as $item)
                                     <tr>
                                 <td>{{ $loop->iteration}}</td>
 
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->type }}</td>
-                                        <td>{{ $item->lat }}</td>
-                                        <td>{{ $item->lan }}</td>
+                                        <td>{{ $item->num_slot }}</td>
+                                        <td>{{ $item->status==0?"Available": "Unavailable" }}</td>
+                                        <td>{{ $item->zone_id }}</td>
 
 
                                        <td class="text-right">
@@ -67,7 +65,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 
-                                            <form action="{{ route('zone.destroy', $item) }}" method="post">
+                                            <form action="{{ route('slot.destroy', $item) }}" method="post">
                                                 @csrf
                                                 @method('delete')
 
@@ -79,7 +77,7 @@
                                             </form>
 
                                             <a class="dropdown-item"
-                                                href="{{ route('zone.edit',$item) }}">{{ __('Edit') }}</a>
+                                                href="{{ route('slot.edit',$item) }}">{{ __('Edit') }}</a>
 
                                         </div>
                                     </div>
@@ -91,7 +89,7 @@
                     </div>
                     <div class="card-footer py-4">
                         <nav class="d-flex justify-content-end" aria-label="...">
-                            {{ $zone->links() }}
+                            {{ $slot->links() }}
                         </nav>
                     </div>
                 </div>

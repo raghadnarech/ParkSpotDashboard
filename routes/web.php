@@ -3,9 +3,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuperAdmin\AuthController;
 use App\Http\Controllers\SuperAdmin\ZoneController;
 use App\Http\Controllers\SuperAdmin\AdminController;
-use App\Http\Controllers\SuperAdmin\UserController;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +30,4 @@ Route::post('dashboard',[AuthController::class,'Login']);
 Route::resource('zone', 'SuperAdmin\ZoneController');
 Route::resource('admin', 'SuperAdmin\AdminController');
 Route::resource('book', 'SuperAdmin\BookController');
-Route::resource('book_history', 'SuperAdmin\Book_historyController');
-Route::resource('user', 'SuperAdmin\UserController');
-
-
 
