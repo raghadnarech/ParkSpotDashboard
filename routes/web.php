@@ -7,6 +7,14 @@ use App\Http\Controllers\SuperAdmin\SlotController;
 use App\Http\Controllers\SuperAdmin\CarController;
 use App\Http\Controllers\SuperAdmin\Book_historyController;
 use App\Http\Controllers\SuperAdmin\UserController;
+use App\Http\Controllers\SuperAdmin\Book_monthlyController;
+use App\Http\Controllers\SuperAdmin\Type_payController;
+use App\Http\Controllers\SuperAdmin\Wallet_AdminController;
+use App\Http\Controllers\SuperAdmin\Wallet_UserController;
+
+
+
+
 
 
 
@@ -28,6 +36,9 @@ return view("welcome");
 Route::get('/', function () {
     return view("welcome");
 })->name('home');
+// Route::post('/', function () {
+//     return view("dashboard");
+// })->name('dashboard');
 
 Route::get('login', function () {
     return view("auth.login");
@@ -40,6 +51,18 @@ Route::resource('book', 'SuperAdmin\BookController');
 Route::resource('book_history', 'SuperAdmin\Book_historyController');
 Route::resource('slot', 'SuperAdmin\SlotController');
 Route::resource('user', 'SuperAdmin\UserController');
+Route::resource('book_monthly', 'SuperAdmin\Book_monthlyController');
+Route::resource('typepay', 'SuperAdmin\Type_payController');
+Route::resource('walletadmin', 'SuperAdmin\Wallet_AdminController');
+Route::resource('walletuser', 'SuperAdmin\Wallet_UserController');
+Route::resource('user_info', 'SuperAdmin\UserController');
+
+
+
+
+
+
+
 
 
 
