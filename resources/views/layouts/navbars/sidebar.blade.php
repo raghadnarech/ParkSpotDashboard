@@ -84,7 +84,7 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('home') }}">
+                <a class="nav-link" >
                     <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                 </a>
             </li>
@@ -128,7 +128,27 @@
                     <i class="ni ni-world-2 text-primary"></i> {{ __('User') }}
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('book_monthly.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('Book Monthly') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('typepay.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('Type Pay') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('walletadmin.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('Wallet Admin') }}
+                </a>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('walletuser.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('Wallet User') }}
+                </a>
+            </li>
             {{-- <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>

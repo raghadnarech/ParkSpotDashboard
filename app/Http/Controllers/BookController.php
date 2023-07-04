@@ -33,7 +33,7 @@ use TraitApiResponse;
         $end_shift=Carbon::now();
         $start_shift=Carbon::now();
         $end_shift->setTime(0,00);
-        $time_now=Carbon::now()->setTimezone('Asia/Damascus')->subHours(5);
+        $time_now=Carbon::now()->setTimezone('Asia/Damascus')->subHours();
         $difEnd_Now=$end_shift->diffInHours($time_now);
 
 

@@ -1,13 +1,13 @@
-@extends('layouts.app', ['title' => __('Parking Zone ')])
+@extends('layouts.app', ['title' => __('Parking Wallet User')])
 
 @section('content')
   @include('layouts.headers.header',
       array(
           'class'=>'info',
-          'title'=>"Parking Zone",'description'=>'',
+          'title'=>"Parking Wallet User",'description'=>'',
           'icon'=>'fas fa-home',
           'breadcrumb'=>array([
-            'text'=>'Parking Zone'
+            'text'=>'Parking Wallet User'
 ])))
 
     <div class="container-fluid mt--7">
@@ -17,10 +17,10 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('Parking Zone ') }}</h3>
+                                <h3 class="mb-0">{{ __('Parking Wallet User') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('zone.create') }}" class="btn btn-sm btn-primary">{{ __('Add Zone') }}</a>
+                                <a href="{{ route('walletuser.create') }}" class="btn btn-sm btn-primary">{{ __('Add Wallet User') }}</a>
                             </div>
                         </div>
                     </div>
@@ -41,25 +41,21 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">{{ __('#') }}</th>
-                                    <th scope="col">{{ __('Zone Name') }}</th>
-                                    <th scope="col">{{ __('Type') }}</th>
-                                    <th scope="col">{{ __('Lat') }}</th>
-                                    <th scope="col">{{ __('Lan') }}</th>
+                                    <th scope="col">{{ __('amount') }}</th>
+                                    <th scope="col">{{ __('user_id') }}</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($zone as $item)
+                                @foreach ($walletuser as $item)
                                     <tr>
                                 <td>{{ $loop->iteration}}</td>
 
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->type }}</td>
-                                        <td>{{ $item->lat }}</td>
-                                        <td>{{ $item->lan }}</td>
+                                        <td>{{ $item->amount }}</td>
+                                        <td>{{ $item->user_id }}</td>
 
 
-                                       <td class="text-right">
+                                    <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,7 +63,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 
-                                            <form action="{{ route('zone.destroy', $item) }}" method="post">
+                                            <form action="{{ route('walletuser.destroy', $item) }}" method="post">
                                                 @csrf
                                                 @method('delete')
 
@@ -79,7 +75,7 @@
                                             </form>
 
                                             <a class="dropdown-item"
-                                                href="{{ route('zone.edit',$item) }}">{{ __('Edit') }}</a>
+                                                href="{{ route('walletuser.edit',$item) }}">{{ __('Edit') }}</a>
 
                                         </div>
                                     </div>
@@ -91,7 +87,7 @@
                     </div>
                     <div class="card-footer py-4">
                         <nav class="d-flex justify-content-end" aria-label="...">
-                            {{ $zone->links() }}
+                            {{ $walletuser->links() }}
                         </nav>
                     </div>
                 </div>
