@@ -56,6 +56,8 @@ Route::resource('book_monthly', 'SuperAdmin\Book_monthlyController');
 Route::resource('typepay', 'SuperAdmin\Type_payController');
 Route::resource('walletadmin', 'SuperAdmin\Wallet_AdminController');
 Route::resource('walletuser', 'SuperAdmin\Wallet_UserController');
+Route::resource('user_info', 'SuperAdmin\UserController');
+
 
 
 

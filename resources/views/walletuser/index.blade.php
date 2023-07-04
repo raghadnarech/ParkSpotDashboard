@@ -51,10 +51,12 @@
                                     <tr>
                                 <td>{{ $loop->iteration}}</td>
 
+
                                         <td>{{ $item->amount }}</td>
-                                        <td>{{ $item->user_id }}</td>
 
-
+                                        <td>
+                                        <a class="dropdown-item"
+                                        href="{{ route('user_info.edituser',$item) }}">{{ __($item->user_id) }}</a></td>
                                     <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
