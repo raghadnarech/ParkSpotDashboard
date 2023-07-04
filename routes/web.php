@@ -39,8 +39,21 @@ Route::resource('admin', 'SuperAdmin\AdminController');
 Route::resource('book', 'SuperAdmin\BookController');
 Route::resource('book_history', 'SuperAdmin\Book_historyController');
 Route::resource('slot', 'SuperAdmin\SlotController');
-Route::resource('car', 'SuperAdmin\CarController');
 Route::resource('user', 'SuperAdmin\UserController');
+
+
+
+
+
+
+
+
+Route::get('car', [CarController::class,'index'])->name('car.index');
+Route::get('car/create', [CarController::class,'create']);
+Route::post('car/store', [CarController::class,'store'])->name('car.store');
+Route::get('car/edit/{num_car}/{country}', [CarController::class,'edit'])->name('car.edit');
+Route::post('car/delete/{num_car}/{country}', [CarController::class,'destroy'])->name('car.destroy');
+
 
 
 

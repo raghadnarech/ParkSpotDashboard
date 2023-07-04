@@ -20,7 +20,7 @@
                                 <h3 class="mb-0">{{ __('Parking Car ') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('car.create') }}" class="btn btn-sm btn-primary">{{ __('Add Car') }}</a>
+                                <a href="{{ Url('car\create') }}" class="btn btn-sm btn-primary">{{ __('Add Car') }}</a>
                             </div>
                         </div>
                     </div>
@@ -45,6 +45,7 @@
                                     <th scope="col">{{ __('ID') }}</th>
                                     <th scope="col">{{ __('Type') }}</th>
                                     <th scope="col">{{ __('Color') }}</th>
+                                    <th scope="col">{{ __('User ID') }}</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -57,6 +58,7 @@
                                         <td>{{ $item->num_car }}</td>
                                         <td>{{ $item->type }}</td>
                                         <td>{{ $item->color }}</td>
+                                        <td>{{ $item->user_id }}</td>
 
 
                                        <td class="text-right">
@@ -67,9 +69,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 
-                                            <form action="{{ route('car.destroy', $item->country,$item->num_car) }}" method="post">
-                                                @csrf
-                                                @method('delete')
+                                            <form action="{{ route('car.destroy',  ['num_car' => $item->num_car, 'country' => $item->country])}}" method="post">
 
 
                                                 <button type="button" class="dropdown-item"
@@ -79,7 +79,7 @@
                                             </form>
 
                                             <a class="dropdown-item"
-                                                href="{{ route('car.edit', $item) }}">{{ __('Edit') }}</a>
+                                                href="{{ route('car.edit',  ['num_car' => $item->num_car, 'country' => $item->country])}}">{{ __('Edit') }}</a>
 
                                         </div>
                                     </div>

@@ -28,7 +28,7 @@
 
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('car.update',$car,$newcar) }}" autocomplete="off" enctype="multipart/form-data">
+                        <form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
 
                             @csrf
                             @method('put')
@@ -63,8 +63,8 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group{{ $errors->has('type') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-type">{{ __('Lat') }}</label>
-                                        <input type="text" name="type" id="input-type" class="form-control form-control-alternative{{ $errors->has('type') ? ' is-invalid' : '' }}" placeholder="{{ __('Lat') }}" value="{{ old('type',$car->type) }}" autofocus required >
+                                        <label class="form-control-label" for="input-type">{{ __('Type') }}</label>
+                                        <input type="text" name="type" id="input-type" class="form-control form-control-alternative{{ $errors->has('type') ? ' is-invalid' : '' }}" placeholder="{{ __('Type') }}" value="{{ old('type',$car->type) }}" autofocus required >
 
                                         @if ($errors->has('type'))
                                             <span class="invalid-feedback" role="alert">
