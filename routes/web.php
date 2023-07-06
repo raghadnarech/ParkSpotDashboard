@@ -12,6 +12,10 @@ use App\Http\Controllers\SuperAdmin\Type_payController;
 use App\Http\Controllers\SuperAdmin\Wallet_AdminController;
 use App\Http\Controllers\SuperAdmin\Wallet_UserController;
 use App\Http\Controllers\SuperAdmin\transaction_monthlyController;
+use App\Http\Controllers\SuperAdmin\depositeController;
+use App\Http\Controllers\SuperAdmin\depositsuperadminController;
+
+
 
 
 
@@ -46,7 +50,7 @@ Route::get('login', function () {
     return view("auth.login");
 })->name('login');
 
-Route::post('dashboard',[AuthController::class,'Login']);
+Route::post('dashboard',[AuthController::class,'Login'])->name('dashboard');
 Route::resource('zone', 'SuperAdmin\ZoneController');
 Route::resource('admin', 'SuperAdmin\AdminController');
 Route::resource('book', 'SuperAdmin\BookController');
@@ -61,6 +65,11 @@ Route::resource('walletuser', 'SuperAdmin\Wallet_UserController');
 Route::get('walletuser/showuser/{id}', [Wallet_UserController::class,'show_user'])->name('walletuser.show_user');
 Route::resource('user_info', 'SuperAdmin\UserController');
 Route::resource('transactionmonthly', 'SuperAdmin\transaction_monthlyController');
+Route::resource('deposite', 'SuperAdmin\depositeController');
+Route::resource('depositsuperadmin', 'SuperAdmin\depositsuperadminController');
+
+
+
 
 
 
@@ -83,6 +92,14 @@ Route::post('car/store', [CarController::class,'store'])->name('car.store');
 Route::get('car/edit/{num_car}/{country}', [CarController::class,'edit'])->name('car.edit');
 Route::post('car/delete/{num_car}/{country}', [CarController::class,'destroy'])->name('car.destroy');
 
+Route::get('car', [CarController::class,'index'])->name('car.index');
+Route::get('car/create', [CarController::class,'create']);
+Route::post('car/store', [CarController::class,'store'])->name('car.store');
+Route::get('car/edit/{num_car}/{country}', [CarController::class,'edit'])->name('car.edit');
+Route::post('car/delete/{num_car}/{country}', [CarController::class,'destroy'])->name('car.destroy');
 
-
-
+Route::get('/logout', function () {
+    if(session()->has('user')){
+    session()->pull('user');
+    return view("welcome");}
+})->name('logout');

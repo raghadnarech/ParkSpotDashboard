@@ -29,9 +29,11 @@ class transaction_monthlyController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'password' => 'required',
+            'bookmonthly_id' => 'required',
+            'typepay_id' => 'required',
+            'cost' => 'required',
+            'date' => 'required',
+            'walletadmin_id' => 'required',
         ]);
 
         $TransactionMonthly=new TransactionMonthly();

@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand pt-0" href="{{ route('home') }}" >
+        <a class="navbar-brand pt-0" >
             <img src="{{ asset('argon') }}/img/brand/blue.png" class="navbar-brand-img" alt="...">
         </a>
         <!-- User -->
@@ -22,7 +22,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                     <div class=" dropdown-header noti-title">
-                        <h6 class="text-overflow m-0">{{ __('Welcome!') }}</h6>
+                        <h6 class="text-overflow m-0">{{ __('Welcome') }}</h6>
                     </div>
                     <a href="" class="dropdown-item">
                         <i class="ni ni-single-02"></i>
@@ -88,29 +88,15 @@
                     <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                 </a>
             </li>
-            {{-- <li class="nav-item">
-                    <a class="nav-link" href="{{ url('vehicleType') }}">
-            <i class="ni ni-bus-front-12 text-warning"></i> {{ __('Vehicle Type') }}
-            </a>
-            </li> --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('zone.index') }}">
-                    <i class="ni ni-spaceship text-info"></i> {{ __('Zones') }}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.index') }}">
-                    <i class="ni ni-circle-08 text-danger"></i> {{ __('Admin') }}
-                </a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('book.index') }}">
                     <i class="ni ni-single-02 text-success"></i> {{ __('Books') }}
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('slot.index') }}">
-                    <i class="ni ni-briefcase-24 text-warning"></i> {{ __('Slot') }}
+                <a class="nav-link" href="{{ route('book_monthly.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('Book Monthly') }}
                 </a>
             </li>
             <li class="nav-item">
@@ -118,33 +104,10 @@
                     <i class="ni ni-cart text-info"></i> {{ __('Book History') }}
                 </a>
             </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="{{ Url('car') }}">
-            <i class="ni ni-settings-gear-65 text-success"></i> {{ __('Car') }}
-            </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('user.index') }}">
-                    <i class="ni ni-world-2 text-primary"></i> {{ __('User') }}
-                </a>
-            </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('walletuser.index') }}">
-                    <i class="ni ni-world-2 text-primary"></i> {{ __('Wallet User') }}
-                </a>
-            </li>
-
-
-
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('book_monthly.index') }}">
-                    <i class="ni ni-world-2 text-primary"></i> {{ __('Book Monthly') }}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('typepay.index') }}">
-                    <i class="ni ni-world-2 text-primary"></i> {{ __('Type Pay') }}
+                <a class="nav-link" href="{{ route('admin.index') }}">
+                    <i class="ni ni-circle-08 text-danger"></i> {{ __('Admin') }}
                 </a>
             </li>
             <li class="nav-item">
@@ -153,9 +116,53 @@
                 </a>
             </li>
 
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('user.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('User') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ Url('car') }}">
+                <i class="ni ni-settings-gear-65 text-success"></i> {{ __('Car') }}
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('walletuser.index') }}">
                     <i class="ni ni-world-2 text-primary"></i> {{ __('Wallet User') }}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('zone.index') }}">
+                    <i class="ni ni-spaceship text-info"></i> {{ __('Zones') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('slot.index') }}">
+                    <i class="ni ni-briefcase-24 text-warning"></i> {{ __('Slot') }}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('typepay.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('Type Pay') }}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('transactionmonthly.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('Transaction Monthly') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('deposite.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('Deposit User') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('depositsuperadmin.index') }}">
+                    <i class="ni ni-world-2 text-primary"></i> {{ __('Deposite Super Admin') }}
                 </a>
             </li>
 
