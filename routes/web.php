@@ -55,6 +55,8 @@ Route::resource('book_monthly', 'SuperAdmin\Book_monthlyController');
 Route::resource('typepay', 'SuperAdmin\Type_payController');
 Route::resource('walletadmin', 'SuperAdmin\Wallet_AdminController');
 Route::resource('walletuser', 'SuperAdmin\Wallet_UserController');
+Route::resource('walletuser', 'SuperAdmin\Wallet_UserController');
+Route::get('walletuser/showuser/{id}', [Wallet_UserController::class,'show_user'])->name('walletuser.show_user');
 Route::resource('user_info', 'SuperAdmin\UserController');
 
 

@@ -134,11 +134,7 @@
                     <i class="ni ni-world-2 text-primary"></i> {{ __('Wallet User') }}
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('walletuser.index') }}">
-                    <i class="ni ni-world-2 text-primary"></i> {{ __('Wallet User') }}
-                </a>
-            </li>
+
 
 
             <li class="nav-item">
@@ -157,11 +153,7 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('walletuser.index') }}">
-                    <i class="ni ni-world-2 text-primary"></i> {{ __('Wallet User') }}
-                </a>
-            </li>
+
 
 
 

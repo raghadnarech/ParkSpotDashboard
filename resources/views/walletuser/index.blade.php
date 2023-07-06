@@ -55,8 +55,9 @@
                                         <td>{{ $item->amount }}</td>
 
                                         <td>
-                                        <a class="dropdown-item"
-                                        href="{{ route('user_info.edituser',$item) }}">{{ __($item->user_id) }}</a></td>
+                                            <div class="col-4 text-right">
+                                                <a href="{{ route('walletuser.show_user',$item) }}" class="btn btn-sm btn-primary">{{ __('Show User') }}</a>
+                                            </div>
                                     <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"

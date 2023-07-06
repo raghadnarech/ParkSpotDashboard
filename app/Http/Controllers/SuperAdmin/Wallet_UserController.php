@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\WalletUser;
 use Illuminate\Http\Request;
 
@@ -114,4 +115,13 @@ class Wallet_UserController extends Controller
         $walletuser->delete();
         return redirect()->route('walletuser.index')->withStatus(__('Wallet User deleted successfully.'));
     }
+
+    public function show_user(Request $id)
+    {
+        //
+        $user = User::find($id->id);
+
+        return view('walletuser.showuser', ['user' => $user]);
+    }
+
 }
