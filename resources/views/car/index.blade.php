@@ -14,16 +14,69 @@
         <div class="row">
             <div class="col">
                 <div class="card shadow">
+
+                    {{-- {{ أزرار البحث }} --}}
                     <div class="card-header border-0">
                         <div class="row align-items-center">
-                            <div class="col-8">
-                                <h3 class="mb-0">{{ __('Parking Car ') }}</h3>
-                            </div>
-                            <div class="col-4 text-right">
-                                <a href="{{ Url('car\create') }}" class="btn btn-sm btn-primary">{{ __('Add Car') }}</a>
-                            </div>
+                          <div class="col-6 col-md-4">
+                            <h3 class="mb-0">{{ __('Parking Car') }}</h3>
+                          </div>
+
+                          <div class="col-6 col-md-4">
+                            <form class="form-inline" action="{{ route('car.search') }}" method="GET">
+                              <div class="input-group">
+                                <input type="text" class="form-control" placeholder="{{ __('Search') }}" aria-describedby="" name="search">
+                                <div class="input-group-append">
+                                  <button class="btn btn-sm btn-primary" type="submit">{{ __('Search') }}</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div class="col-12 col-md-4 mt-3 mt-md-0 text-md-right">
+                            <button class="btn btn-sm btn-primary" id="advanced-search-toggle">{{ __('Advanced Search') }}</button>
+                            <a href="{{ Url('car\create') }}" class="btn btn-sm btn-primary ml-2">{{ __('Add Car') }}</a>
+                          </div>
                         </div>
-                    </div>
+
+                        <div class="row mt-3" id="advanced-search-form" style="display:none;">
+                          <div class="col-12 col-md-8 offset-md-2">
+                            <form class="card p-3" action="{{ route('car.advancesearch') }}" method="GET" >
+                              <div class="form-row">
+                                <div class="col-12 col-sm-4 form-group">
+                                  <label for="name">{{ __('Country Car') }}</label>
+                                  <input type="text" name="country" class="form-control" placeholder="{{ __('Enter country car') }}">
+                                </div>
+                                <div class="col-12 col-sm-4 form-group">
+                                  <label for="email">{{ __('Vehiacle ID') }}</label>
+                                  <input type="text" name="num_car" class="form-control" placeholder="{{ __('Enter vehiacle id') }}">
+                                </div>
+                                <div class="col-12 col-sm-4 form-group">
+                                  <label for="course">{{ __('User phone') }}</label>
+                                  <input type="text" name="phone" class="form-control" placeholder="{{ __('Enter user phone') }}">
+                                </div>
+                              </div>
+                              <div class="text-center">
+                                <button type="submit" class="btn btn-primary">{{ __('Advance Search') }}</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+
+                      <script>
+                        var advancedSearchForm = document.getElementById('advanced-search-form');
+                        var advancedSearchToggle = document.getElementById('advanced-search-toggle');
+
+                        advancedSearchToggle.addEventListener('click', function() {
+                          if (advancedSearchForm.style.display === 'none') {
+                            advancedSearchForm.style.display = 'block';
+                          } else {
+                            advancedSearchForm.style.display = 'none';
+                          }
+                        });
+                      </script>
+                    {{-- {{ أزرار البحث }} --}}
 
                     <div class="col-12">
                         @if (session('status'))

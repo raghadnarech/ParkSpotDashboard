@@ -82,7 +82,8 @@ Route::get('car/create', [CarController::class,'create']);
 Route::post('car/store', [CarController::class,'store'])->name('car.store');
 Route::get('car/edit/{num_car}/{country}', [CarController::class,'edit'])->name('car.edit');
 Route::post('car/delete/{num_car}/{country}', [CarController::class,'destroy'])->name('car.destroy');
-
+Route::get('/car/simple', [CarController::class,'simple'])->name('car.search');
+Route::get('/car/advancesearch', [CarController::class,'advance'])->name('car.advancesearch');
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Car;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -56,4 +57,34 @@ class CarController extends Controller
         return redirect()->route('car.index')->withStatus(__('Car deleted successfully.'));
     }
 
+    public function simple(Request $request)
+
+    {
+
+        if( $request->input('search')){
+        $car = Car::where('num_car','LIKE','%'. $request->search .'%')->paginate(10);
+        if (!$car) {
+           $car = Car::paginate(10);
+        }
+        }else{
+        $car = Car::paginate(10);
+	}
+        return view('car.index', ['car' => $car]);
+    }
+
+    public function advance(Request $request)
+
+    {
+
+        if( $request->input('phone')){
+        $user=User::where('phone',$request->phone)->first();
+        $car = Car::where('user_id', $user->id )->paginate(10);
+        if (!$car) {
+           $car = Car::paginate(10);
+        }
+        }else{
+        $car = Car::paginate(10);
+	}
+        return view('car.index', ['car' => $car]);
+    }
 }
