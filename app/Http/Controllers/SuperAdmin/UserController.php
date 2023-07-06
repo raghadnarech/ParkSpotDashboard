@@ -91,7 +91,7 @@ class UserController extends Controller
     {
         //
         $user = User::findOrFail($id);
-        $walletuser = WalletUser::where('user_id',$id);
+        $walletuser = WalletUser::where('id',$id);
         $user->delete();
         $walletuser->delete();
         return redirect()->route('user.index')->withStatus(__('User deleted successfully.'));

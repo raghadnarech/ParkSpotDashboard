@@ -1,13 +1,13 @@
-@extends('layouts.app', ['title' => __('Parking Zone')])
+@extends('layouts.app', ['title' => __('Parking Transaction Monthly')])
 
 @section('content')
    @include('layouts.headers.header',
       array(
           'class'=>'info',
-          'title'=>"Parking Zone",'description'=>'',
+          'title'=>"Parking Transaction Monthly",'description'=>'',
           'icon'=>'fas fa-home',
           'breadcrumb'=>array([
-            'text'=>'Parking Zone'
+            'text'=>'Parking Transaction Monthly'
 ],['text'=>'Edit Detail'])))
 
 
@@ -18,85 +18,42 @@
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('Parking Zone') }}</h3>
+                                <h3 class="mb-0">{{ __('Parking Transaction Monthly') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('zone.index') }}" class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
+                                <a href="{{ route('transactionmonthly.index') }}" class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="card-body">
-                        <form method="post" action="{{ route('zone.update', $zone) }}" autocomplete="off" enctype="multipart/form-data">
-                            @csrf
-                            @method('put')
-
-                            <h6 class="heading-small text-muted mb-4">{{ __('Parking Zone Detail') }}</h6>
-                            <div class="pl-lg-4">
-
-                                <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-name">{{ __('Title') }}</label>
-                                    <input type="text" name="title" id="input-name" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Title') }}" value="{{ old('title',$zone->name) }}"  autofocus required>
-
-                                    @if ($errors->has('title'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('title') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-
-
-
-                             <div class="form-group{{ $errors->has('image') ? ' has-danger' : '' }}">
-                                <label class="form-control-label" for="input-status">{{ __('Image') }}</label>
-
-                                <input type="file" name="image"
-                                    class="form-control form-control-alternative{{ $errors->has('image') ? ' is-invalid' : '' }}"
-                                    >
-
-
-
-
-                                @if ($errors->has('image'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('image') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div> --}}
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('zone.update', $zone) }}" autocomplete="off" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('transactionmonthly.update', $transactionmonthly) }}" autocomplete="off" enctype="multipart/form-data">
 
                             @csrf
                             @method('put')
-                            <h6 class="heading-small text-muted mb-4">{{ __('Parking Zone Detail') }}</h6>
+                            <h6 class="heading-small text-muted mb-4">{{ __('Parking Transaction Monthly Detail') }}</h6>
                         <div class="pl-lg-4">
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-name">{{ __('Name') }}</label>
-                                        <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name',$zone->name) }}"  autofocus required>
+                                    <div class="form-group{{ $errors->has('bookmonthly_id') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-bookmonthly_id">{{ __('Bookmonthly_id') }}</label>
+                                        <input type="number" name="bookmonthly_id" id="input-bookmonthly_id" class="form-control form-control-alternative{{ $errors->has('bookmonthly_id') ? ' is-invalid' : '' }}" placeholder="{{ __('Bookmonthly_id') }}" value="{{ old('bookmonthly_id',$transactionmonthly->bookmonthly_id) }}"  autofocus required>
 
-                                        @if ($errors->has('name'))
+                                        @if ($errors->has('bookmonthly_id'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('name') }}</strong>
+                                                <strong>{{ $errors->first('bookmonthly_id') }}</strong>
                                             </span>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="form-group{{ $errors->has('type') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-type">{{ __('Type') }}</label>
-                                        <input type="text" name="type" id="input-type" class="form-control form-control-alternative{{ $errors->has('type') ? ' is-invalid' : '' }}" placeholder="{{ __('Type') }}" value="{{ old('type',$zone->type) }}" autofocus required>
+                                    <div class="form-group{{ $errors->has('typepay_id') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-typepay_id">{{ __('Typepay_id') }}</label>
+                                        <input type="number" name="typepay_id" id="input-typepay_id" class="form-control form-control-alternative{{ $errors->has('typepay_id') ? ' is-invalid' : '' }}" placeholder="{{ __('Typepay_id') }}" value="{{ old('typepay_id',$transactionmonthly->typepay_id) }}"  autofocus required>
 
-                                        @if ($errors->has('type'))
+                                        @if ($errors->has('typepay_id'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('type') }}</strong>
+                                                <strong>{{ $errors->first('typepay_id') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -104,25 +61,39 @@
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="form-group{{ $errors->has('lat') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-lat">{{ __('Lat') }}</label>
-                                        <input type="number" name="lat" id="input-lat" class="form-control form-control-alternative{{ $errors->has('lat') ? ' is-invalid' : '' }}" placeholder="{{ __('Lat') }}" value="{{ old('lat',$zone->lat) }}" autofocus required step="0.0000000001">
+                                    <div class="form-group{{ $errors->has('cost') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-cost">{{ __('Cost') }}</label>
+                                        <input type="number" name="cost" id="input-cost" class="form-control form-control-alternative{{ $errors->has('cost') ? ' is-invalid' : '' }}" placeholder="{{ __('Cost') }}" value="{{ old('cost',$transactionmonthly->cost) }}" autofocus required >
 
-                                        @if ($errors->has('lat'))
+                                        @if ($errors->has('cost'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('lat') }}</strong>
+                                                <strong>{{ $errors->first('cost') }}</strong>
                                             </span>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="form-group{{ $errors->has('lan') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-lan">{{ __('Lan') }}</label>
-                                        <input type="number" name="lan" id="input-lan" class="form-control form-control-alternative{{ $errors->has('lan') ? ' is-invalid' : '' }}" placeholder="{{ __('Lan') }}" value="{{ old('lan',$zone->lan) }}" autofocus required step="0.0000000001">
+                                    <div class="form-group{{ $errors->has('date') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-date">{{ __('Date') }}</label>
+                                        <input type="date" name="date" id="input-date" class="form-control form-control-alternative{{ $errors->has('date') ? ' is-invalid' : '' }}" placeholder="{{ __('date') }}" value="{{ old('date',$transactionmonthly->date) }}" autofocus required >
 
-                                        @if ($errors->has('lan'))
+                                        @if ($errors->has('date'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('lan') }}</strong>
+                                                <strong>{{ $errors->first('date') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group{{ $errors->has('walletadmin_id') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-walletadmin_id">{{ __('walletadmin_id') }}</label>
+                                        <input type="number" name="walletadmin_id" id="input-walletadmin_id" class="form-control form-control-alternative{{ $errors->has('walletadmin_id') ? ' is-invalid' : '' }}" placeholder="{{ __('Walletadmin_id') }}" value="{{ old('walletadmin_id',$transactionmonthly->walletadmin_id) }}" autofocus required >
+
+                                        @if ($errors->has('walletadmin_id'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('walletadmin_id') }}</strong>
                                             </span>
                                         @endif
                                     </div>

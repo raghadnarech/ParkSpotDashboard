@@ -11,6 +11,8 @@ use App\Http\Controllers\SuperAdmin\Book_monthlyController;
 use App\Http\Controllers\SuperAdmin\Type_payController;
 use App\Http\Controllers\SuperAdmin\Wallet_AdminController;
 use App\Http\Controllers\SuperAdmin\Wallet_UserController;
+use App\Http\Controllers\SuperAdmin\transaction_monthlyController;
+
 
 
 
@@ -56,6 +58,8 @@ Route::resource('typepay', 'SuperAdmin\Type_payController');
 Route::resource('walletadmin', 'SuperAdmin\Wallet_AdminController');
 Route::resource('walletuser', 'SuperAdmin\Wallet_UserController');
 Route::resource('user_info', 'SuperAdmin\UserController');
+Route::resource('transactionmonthly', 'SuperAdmin\transaction_monthlyController');
+
 
 
 
