@@ -1,13 +1,13 @@
-@extends('layouts.app', ['title' => __('Parking Zone ')])
+@extends('layouts.app', ['title' => __('Parking Deposite Super Deposit Super Admin ')])
 
 @section('content')
   @include('layouts.headers.header',
       array(
           'class'=>'info',
-          'title'=>"Parking Zone",'description'=>'',
+          'title'=>"Parking Deposite Super Deposit Super Admin",'description'=>'',
           'icon'=>'fas fa-home',
           'breadcrumb'=>array([
-            'text'=>'Parking Zone'
+            'text'=>'Parking Deposite Super Deposit Super Admin'
 ])))
 
     <div class="container-fluid mt--7">
@@ -17,10 +17,10 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('Parking Zone ') }}</h3>
+                                <h3 class="mb-0">{{ __('Parking Deposite Super Admin ') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('zone.create') }}" class="btn btn-sm btn-primary">{{ __('Add Zone') }}</a>
+                                <a href="{{ route('depositsuperadmin.create') }}" class="btn btn-sm btn-primary">{{ __('Add deposit') }}</a>
                             </div>
                         </div>
                     </div>
@@ -41,25 +41,25 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">{{ __('#') }}</th>
-                                    <th scope="col">{{ __('Zone Name') }}</th>
-                                    <th scope="col">{{ __('Type') }}</th>
-                                    <th scope="col">{{ __('Lat') }}</th>
-                                    <th scope="col">{{ __('Lan') }}</th>
+                                    <th scope="col">{{ __('date') }}</th>
+                                    <th scope="col">{{ __('cost') }}</th>
+                                    <th scope="col">{{ __('super_admin_id') }}</th>
+                                    <th scope="col">{{ __('walletadmin_id') }}</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($zone as $item)
+                                @foreach ($depositsuperadmin as $item)
                                     <tr>
                                 <td>{{ $loop->iteration}}</td>
 
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->type }}</td>
-                                        <td>{{ $item->lat }}</td>
-                                        <td>{{ $item->lan }}</td>
+                                        <td>{{ $item->date }}</td>
+                                        <td>{{ $item->cost }}</td>
+                                        <td>{{ $item->super_admin_id }}</td>
+                                        <td>{{ $item->walletadmin_id }}</td>
 
 
-                                       <td class="text-right">
+                                    <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,7 +67,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 
-                                            <form action="{{ route('zone.destroy', $item) }}" method="post">
+                                            <form action="{{ route('depositsuperadmin.destroy', $item) }}" method="post">
                                                 @csrf
                                                 @method('delete')
 
@@ -79,7 +79,7 @@
                                             </form>
 
                                             <a class="dropdown-item"
-                                                href="{{ route('zone.edit',$item) }}">{{ __('Edit') }}</a>
+                                                href="{{ route('depositsuperadmin.edit',$item) }}">{{ __('Edit') }}</a>
 
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="card-footer py-4">
                         <nav class="d-flex justify-content-end" aria-label="...">
-                            {{ $zone->links() }}
+                            {{ $depositsuperadmin->links() }}
                         </nav>
                     </div>
                 </div>

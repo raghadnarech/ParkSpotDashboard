@@ -12,6 +12,10 @@ use App\Http\Controllers\SuperAdmin\Type_payController;
 use App\Http\Controllers\SuperAdmin\Wallet_AdminController;
 use App\Http\Controllers\SuperAdmin\Wallet_UserController;
 use App\Http\Controllers\SuperAdmin\transaction_monthlyController;
+use App\Http\Controllers\SuperAdmin\depositeController;
+use App\Http\Controllers\SuperAdmin\depositsuperadminController;
+
+
 
 
 
@@ -46,7 +50,7 @@ Route::get('login', function () {
     return view("auth.login");
 })->name('login');
 
-Route::post('dashboard',[AuthController::class,'Login']);
+Route::post('dashboard',[AuthController::class,'Login'])->name('dashboard');
 Route::resource('zone', 'SuperAdmin\ZoneController');
 Route::resource('admin', 'SuperAdmin\AdminController');
 Route::resource('book', 'SuperAdmin\BookController');
@@ -61,6 +65,11 @@ Route::resource('walletuser', 'SuperAdmin\Wallet_UserController');
 Route::get('walletuser/showuser/{id}', [Wallet_UserController::class,'show_user'])->name('walletuser.show_user');
 Route::resource('user_info', 'SuperAdmin\UserController');
 Route::resource('transactionmonthly', 'SuperAdmin\transaction_monthlyController');
+Route::resource('deposite', 'SuperAdmin\depositeController');
+Route::resource('depositsuperadmin', 'SuperAdmin\depositsuperadminController');
+
+
+
 
 
 
@@ -85,5 +94,8 @@ Route::post('car/delete/{num_car}/{country}', [CarController::class,'destroy'])-
 Route::get('/car/simple', [CarController::class,'simple'])->name('car.search');
 Route::get('/car/advancesearch', [CarController::class,'advance'])->name('car.advancesearch');
 
-
-
+Route::get('/logout', function () {
+    if(session()->has('user')){
+    session()->pull('user');
+    return view("welcome");}
+})->name('logout');
